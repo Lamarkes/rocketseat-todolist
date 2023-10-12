@@ -17,12 +17,12 @@ public class UserModel {
     @Id
     @GeneratedValue(generator = "UUID") // maneira de gerar valores UUID automatico - mais seguros que o id normal
     private UUID id;
-
-    private String userName;
     private String name;
+    @Column(unique = true) // certifica que esse valor seja unico e nao se repita nas colunas - username sera unico e nao podera ser repetido
+    private String username;
     private String password;
 
-    @CreationTimestamp
+    @CreationTimestamp // assim que o banco for criado, ja salva as informaçoes
     private LocalDateTime createdAt; // registrar o momento que o dado ou a tabela foi criado
 
 }
